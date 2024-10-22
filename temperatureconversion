@@ -1,0 +1,28 @@
+import streamlit as st
+
+# Function to convert Fahrenheit to Celsius
+def fahrenheit_to_celsius(fahrenheit):
+    celsius = (fahrenheit - 32) * 5 / 9
+    return celsius
+
+# Function to convert Celsius to Fahrenheit
+def celsius_to_fahrenheit(celsius):
+    fahrenheit = (celsius * 9 / 5) + 32
+    return fahrenheit
+
+# Streamlit app layout
+st.title("Temperature Converter")
+
+# Input for Fahrenheit
+fahrenheit_input = st.number_input("Enter temperature in Fahrenheit:", value=0.0, format="%.2f")
+# Convert and display Celsius result
+if st.button("Convert Fahrenheit to Celsius"):
+    converted_celsius = fahrenheit_to_celsius(fahrenheit_input)
+    st.success(f"{fahrenheit_input}°F is equal to {converted_celsius:.2f}°C")
+
+# Input for Celsius
+celsius_input = st.number_input("Enter temperature in Celsius:", value=0.0, format="%.2f")
+# Convert and display Fahrenheit result
+if st.button("Convert Celsius to Fahrenheit"):
+    converted_fahrenheit = celsius_to_fahrenheit(celsius_input)
+    st.success(f"{celsius_input}°C is equal to {converted_fahrenheit:.2f}°F")
